@@ -21,4 +21,4 @@ class Bot(commands.Bot):
 
 
 bot = Bot()
-bot.run(os.environ.get('TOKEN'))
+bot.run(os.getenv('TOKEN'))
