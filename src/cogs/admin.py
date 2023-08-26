@@ -20,12 +20,21 @@ class Admin(commands.Cog):
         await interaction.followup.send(f'Cleared {count} messages', ephemeral=True)
 
 
-    @app_commands.command(name='giverole', description='Give role to user')
-    @app_commands.checks.has_permissions(manage_roles=True)
-    async def __giverole(self, interaction: discord.Interaction, member: discord.Member, role: discord.Role):
+    # @app_commands.command(name='giverole', description='Give role to user')
+    # @app_commands.checks.has_permissions(manage_roles=True)
+    # async def __giverole(self, interaction: discord.Interaction, member: discord.Member, role: discord.Role):
+    #     await interaction.response.defer(ephemeral=True)
+    #     await member.add_roles(role)
+    #     await interaction.followup.send(f'Gave {role.name} to {member.name}', ephemeral=True)
+
+    @app_commands.command(name='announce', description='Announce to announcement channel')
+    @app_commands.checks.has_permissions(manage_channels=True)
+    async def __announce(self, interaction: discord.Interaction, message: str):
+        channel = interaction.guild.get_channel(1142729770199695471)
+        embed = discord.Embed(title='Announcements!', color=discord.Color.random(), description=message)
         await interaction.response.defer(ephemeral=True)
-        await member.add_roles(role)
-        await interaction.followup.send(f'Gave {role.name} to {member.name}', ephemeral=True)
+        await channel.send(content='@everyone', embed=embed)
+        await interaction.followup.send(f'Announced {message}!', ephemeral=True)
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Admin(bot))

@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class Bot(commands.Bot):
     def __init__(self) -> None:
         super().__init__(command_prefix=os.getenv('PREFIX'), intents=discord.Intents.all())
@@ -20,4 +21,4 @@ class Bot(commands.Bot):
 
 
 bot = Bot()
-bot.run(os.getenv('TOKEN'))
+bot.run(os.environ.get('TOKEN'))
