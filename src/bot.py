@@ -9,7 +9,7 @@ load_dotenv()
 
 class Bot(commands.Bot):
     def __init__(self) -> None:
-        super().__init__(command_prefix=os.getenv('PREFIX'), intents=discord.Intents.all())
+        super().__init__(command_prefix='j!', intents=discord.Intents.all())
 
     async def setup_hook(self) -> None:
         await self.load_commands()
@@ -21,4 +21,4 @@ class Bot(commands.Bot):
 
 
 bot = Bot()
-bot.run(os.getenv('TOKEN'))
+bot.run('MTEwMzY4MTg1Mjc5NzA5NjAxNw.GQ_QVh.VXIu3LGRYhaN8IDGAczXns7oeejd4udsaU3L08')

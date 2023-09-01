@@ -11,8 +11,8 @@ class Developer(commands.Cog):
     @commands.command(name='sync')
     @commands.has_permissions(administrator=True)
     async def __sync(self, ctx: commands.Context):
-        self.bot.tree.copy_global_to(guild=discord.Object(int(os.getenv('GUILD_ID'))))
-        await self.bot.tree.sync(guild=discord.Object(int(os.getenv('GUILD_ID'))))
+        self.bot.tree.copy_global_to(guild=discord.Object(int(1141717827993219072)))
+        await self.bot.tree.sync(guild=discord.Object(int(1141717827993219072)))
         await ctx.send('Sync successful')
 
     @app_commands.command(name='echo')
