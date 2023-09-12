@@ -51,6 +51,17 @@ class Admin(commands.Cog):
     await channel.send(content='@everyone', embed=embed)
     await interaction.followup.send(f'Announced {message}!', ephemeral=True)
 
+  @app_commands.command(name='kick', description='Kick members')
+  @app_commands.checks.has_permissions(kick_members=True)
+  async def __kick(self,
+                   interaction: discord.Interaction,
+                   member: discord.Member,
+                   reason: str = 'No Reason'):
+    await interaction.response.defer(ephemeral=True)
+    await member.kick(reason=reason)
+    await interaction.followup.send(
+      f'{member.name} telah di kick karena *{reason}*', ephemeral=True)
+
 
 async def setup(bot: commands.Bot):
   await bot.add_cog(Admin(bot))
