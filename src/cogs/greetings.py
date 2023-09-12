@@ -93,9 +93,5 @@ class Greetings(commands.Cog):
 
     await msg.add_reaction('👋')
 
-  # @commands.Cog.listener()
-  # async def on_member_remove(self)
 
-
-async def setup(bot: commands.Bot):
   await bot.add_cog(Greetings(bot))
