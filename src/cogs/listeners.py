@@ -13,7 +13,7 @@ class Listeners(commands.Cog):
   @commands.Cog.listener(name='on_ready')
   async def on_ready(self):
     keep_alive()
-    print('Bot is online!')
+    print('Bot is online!!')
 
 
 async def setup(bot: commands.Bot):
